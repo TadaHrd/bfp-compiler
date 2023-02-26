@@ -1,4 +1,5 @@
 fn main() -> std::io::Result<()> {
+    /*
     let args: Vec<String> = std::env::args().collect();
     
     if args.len() < 3 {
@@ -8,6 +9,9 @@ fn main() -> std::io::Result<()> {
     
     let from = std::fs::read_to_string(&args[1])?;
     let mut to = std::fs::File::create(&args[2])?;
+    */
+    let from = std::fs::read_to_string("bf.bfp")?;
+    let mut to = std::fs::File::create("bf.bf")?;
     
     use std::io::prelude::*;
     to.write_all(compile_to_bf(from).as_bytes())?;
@@ -65,6 +69,7 @@ fn compile_to_bf(input: String) -> String {
                     out.push('\n');
                 }
                 string = String::new();
+                keyword = String::new();
             }
         }
     }
