@@ -52,7 +52,10 @@ fn compile_to_bf(input: String) -> String {
             }
         } else if is_string {
             match format!("{}", c).chars().nth(0).unwrap() {
-                '\"' => is_string = false,
+                '\"' => {
+                    is_string = false;
+                    keyword = String::new();
+                },
                 _ => string.push(c),
             }
             if string != String::new() {
@@ -69,7 +72,6 @@ fn compile_to_bf(input: String) -> String {
                     out.push('\n');
                 }
                 string = String::new();
-                keyword = String::new();
             }
         }
     }
