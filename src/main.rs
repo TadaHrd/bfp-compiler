@@ -19,24 +19,27 @@ fn main() -> std::io::Result<()> {
     Ok(())
 }
 
-fn compile_to_bf(input: String) -> String { 
+fn compile_to_bf(input: String) -> String {
     let mut out = String::new();
     
     let mut string = String::new(); /*  */
     let mut keyword = String::new();
     
-    let mut is_comment = false;
+    let mut might_comment = false;
+    let mut might_end_comment = false;
+    let mut is_sl_comment = false;
+    let mut is_ml_comment = false;
     let mut is_string = false;
     
     for c in input.chars() {
-        if !is_comment && !is_string && string == String::new() {
+        if !might_comment && !might_end_comment && !is_sl_comment && !is_ml_comment && !is_string && string == String::new() {
             match c {
                 '>' | '<' | '+' |
                 '-' | '.' | ',' |
                 '[' | ']'
                 => out.push(c),
                 
-                ';' => is_comment = true,
+                '/' => might_comment = true,
                 '\"' => is_string = true,
                 
                 'p'
@@ -45,10 +48,29 @@ fn compile_to_bf(input: String) -> String {
                 
                 _ => (),
             }
-        } else if is_comment {
+        } else if might_comment {
             match c {
-                '\n' => is_comment = false,
+                '/' => is_sl_comment = true,
+                '*' => is_ml_comment = true,
+                _ => might_comment = false
+            }
+        } else if might_end_comment {
+            match c {
+                '/' => {
+                    might_end_comment = false;
+                    is_ml_comment = false;
+                },
+                _ => ()
+            }
+        } else if is_sl_comment {
+            match c {
+                '\n' => is_sl_comment = false,
                 _ => (),
+            }
+        } else if is_ml_comment {
+            match c {
+                '*' => might_end_comment = true,
+                _ => ()
             }
         } else if is_string {
             match format!("{}", c).chars().nth(0).unwrap() {
@@ -75,9 +97,20 @@ fn compile_to_bf(input: String) -> String {
             }
         }
     }
+    if is_ml_comment {
+        return
+        "++++++++++[>+>+++>+++++++>++++++++++<<<<-] Error: Multi line comment did not end
+        >>>-.>++++++++++++++..---.+++.<-----------.
+        <++.>+++++++++++++++++++.>+++.---------.+++
+        +++++.-----------.<<.>>+++.---.+++++.------
+        ---.<<.>>--.++++++++++++.--..--------.+++++
+        ++++.++++++.<<.>>----------------.+++++.---
+        --.<<.>>++++++++++.+.+++++.<<.>>-----------
+        ----.+++++++++.----------.".to_string();
+    }
     if is_string {
         return 
-        "++++++++++[>+>+++>+++++++>++++++++++<<<<-]
+        "++++++++++[>+>+++>+++++++>++++++++++<<<<-] Error: Unterminated String
         >>>-.>++++++++++++++..---.+++.<-----------.
         <++.>+++++++++++++++++++++++++++.>----.++++
         ++.---------------.+++++++++++++.-----.----
