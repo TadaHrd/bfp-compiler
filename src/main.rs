@@ -6,23 +6,21 @@ const ERRORS: [&str; 4] = [
 ];
 
 fn main() -> std::io::Result<()> {
-    /*
-    // let args: Vec<String> = std::env::args().collect();
+    let args: Vec<String> = std::env::args().collect();
     
-    // if args.len() < 3 {
-    //     println!("Too little arguments.\nThe correct way to run this is:\n\"bfp <from> <to>\"\n");
-    //     return Err(std::io::Error::new(std::io::ErrorKind::Other, "Too little arguments"));
-    // }
+    if args.len() < 3 {
+        println!("Too little arguments.\nThe correct way to run this is:\n\"bfp <from> <to>\"\n");
+        return Err(std::io::Error::new(std::io::ErrorKind::Other, "Too little arguments"));
+    }
     
-    // let from = std::fs::read_to_string(&args[1])?;
-    // let mut to = std::fs::File::create(&args[2])?;
-    */
+    let from = std::fs::read_to_string(&args[1])?;
+    let mut to = std::fs::File::create(&args[2])?;
     
-    let from = std::fs::read_to_string("bf.bfp")?;
-    let mut to = std::fs::File::create("bf.bf")?;
+    // // let from = std::fs::read_to_string("bf.bfp")?;
+    // // let mut to = std::fs::File::create("bf.bf")?;
     
-    use std::io::prelude::*;
-    to.write_all(compile_to_bf(from).as_bytes())?;
+    // // use std::io::prelude::*;
+    // // to.write_all(compile_to_bf(from).as_bytes())?;
     
     Ok(())
 }

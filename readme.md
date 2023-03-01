@@ -3,21 +3,21 @@ This also has a vscode extension named [Brainfuck+ Syntax](https://github.com/ta
 
 It's in alpha right now
 
-If you want an executable go [here](https://github.com/tadaHrd/bfp-compiler/releases/tag/2.0.0.0)
+If you want an executable go [here](https://github.com/tadaHrd/bfp-compiler/releases/tag/3.0.0.0)
 
 ---
 # How to code in this
 
 ## Installation instructions
 1. Create a new file named `bfp_file_name.bfp`
-2. Download the bfp executable from [this](https://github.com/tadaHrd/bfp-compiler/releases/tag/2.0.0.0)
+2. Download the bfp executable from [this](https://github.com/tadaHrd/bfp-compiler/releases/tag/3.0.0.0)
 3. Copy the bfp executable to your folder with the file
 4. If there isn't a binary for your system, you must compile the project with [Cargo](https://doc.rust-lang.org/book/ch01-03-hello-cargo.html#building-and-running-a-cargo-project)
 5. Open a command prompt in the folder
 
 ### How to run this:
 1. Run: `bfp bfp_file_name.bfp bf_file_name.bf` or `./bfp.exe bfp_file_name.bfp bf_file_name.bf` if it doesn't work (bfp being the compiler executable)
-2. If you have Windows, you can download the [interpreter](https://github.com/tadaHrd/bfp-compiler/releases/tag/2.0.0.0)
+2. If you have Windows, you can download the [interpreter](https://github.com/tadaHrd/bfp-compiler/releases/tag/3.0.0.0)
 3. On Windows, run:
    - `interpreter bf_file_name.exe` or `./interpreter.exe bf_file_name.bf` if it doesn't work
 4. On other systems, you have to compile it ([Instructions](#installation-instructions)) and run it with an interpreter (I recommend [tio.run](https://tio.run/#brainfuck))
