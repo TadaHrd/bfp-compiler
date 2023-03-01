@@ -42,6 +42,7 @@ If you want to know how to make your first program, go to [this](#making-your-fi
 4. Escape sequences
    1. `\"` - `"` character
    2. `\\` - `\` character
+   3. `\n` - Newline character
 5. Commands
    1. `+` - Adds 1 to the current cell
    2. `-` - Removes 1 from the current cell
