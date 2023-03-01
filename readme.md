@@ -16,7 +16,7 @@ If you want an executable go [here](https://github.com/tadaHrd/bfp-compiler/rele
 5. Open a command prompt in the folder
 
 ### How to run this:
-1. Run: `bfp bfp_file_name.bfp bf_file_name.bf` or `./bfp.exe bfp_file_name.bfp bf_file_name.bf` if it doesn't work (bfp being the compiler file)
+1. Run: `bfp bfp_file_name.bfp bf_file_name.bf` or `./bfp.exe bfp_file_name.bfp bf_file_name.bf` if it doesn't work (bfp being the compiler executable)
 2. If you have Windows, you can download the [interpreter](https://github.com/tadaHrd/bfp-compiler/releases/tag/2.0.0.0)
 3. On Windows, run:
    - `interpreter bf_file_name.exe` or `./interpreter.exe bf_file_name.bf` if it doesn't work
