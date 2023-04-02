@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../styles/colors.css">
+    <link rel="stylesheet" href="../../styles/fonts.css">
+    <link rel="stylesheet" href="index.css">
+
+    <meta property="og:title" content="Brainfuck+ compiler">
+    <meta property="og:description" content="Brainfuck+ compiler which was originally written in Rust but now is rewritten in javascript">
+    <meta property="og:image" content="https://raw.githubusercontent.com/tadaHrd/bfp-syntax/master/images/logo.png">
+    <meta property="og:url" content="https://tadahrd.github.io/try-it-online/bfp-compiler/index.html">
+    <meta property="og:type" content="website">
+
+    <title>Brainfuck+ compiler</title>
+</head>
+<body class="bg-dark">
+    <h1>Brainfuck+ compiler</h1>
+
+    <h2>This is experimental and may have bugs / be outdated!</h2>
+
+    <button id="compile-button" onclick="submit()">Compile</button>
+    <br>
+    <textarea type="text" name="code" id="code-input" placeholder="Code for the compiler..."></textarea>
+    <br>
+    <textarea type="text" name="args" id="args" placeholder="Arguments (for the ',' function)"></textarea>
+
+    <h3>Compiled code:</h3>
+
+    <textarea type="text" name="output" id="code-output" placeholder="This is the output"></textarea>
+
+    <h3>Run your code here:</h3>
+
+    <button id="run-button">Run</button>
+    <br>
+    <textarea type="text" name="output" id="output" placeholder="This is the executed output"></textarea>
+
+    <script src="bfp-compiler.js"></script>
+    <script src="bf-interpreter.js"></script>
+</body>
+</html>
